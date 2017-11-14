@@ -1,0 +1,10 @@
+# Windows:
+Thumbs.db
+projects/**/_sprite.scss
+
+# folder:
+projects/*/dist/
+node_modules/
+**/.vs/
+**/temp/
+**/design/
