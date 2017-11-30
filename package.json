@@ -1,0 +1,23 @@
+{
+  "name": "re",
+  "version": "0.0.1",
+  "description": "nothing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rew3c/re.git"
+  },
+  "keywords": [
+    "re",
+    "nux"
+  ],
+  "author": "rew3c",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rew3c/re/issues"
+  },
+  "homepage": "https://github.com/rew3c/re#readme"
+}
