@@ -1,0 +1,113 @@
+
+// ---------------------------- 公用函数 --------------------------------
+// 返回hover色值
+@function hover($color){
+    @return darken(saturate($color,6%),6%);
+}
+
+// 返回active色值
+@function active($color){
+    @return darken(saturate($color,10%),10%);
+}
+
+// 获取前一个map值
+@function map-prev($map,$key,$keys:map-keys($map)) {
+    $n:index($keys,$key);
+    @if $n == null or $n == 1 {
+        @return null;
+    } @else {
+        @return nth(map-values($map),$n - 1);
+    }
+}
+
+// 获取后一个map值
+@function map-next($map,$key,$keys:map-keys($map)) {
+    $n:index($keys,$key);
+    @if $n == null or $n == length($map) {
+        @return null;
+    } @else {
+          @return nth(map-values($map),$n + 1);
+    }
+}
+
+// ---------------------------- 公用mixin --------------------------------
+// 清除浮动
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 向下媒体查询：小于等于媒体关键字所在范围
+@mixin media-down($key,$breakpoints:$media-breakpoints) {
+    $prev: map-prev($breakpoints,$key);
+    
+    @if $prev {
+        @media (max-width:$prev - 1) {
+            & {
+                @content;
+            }
+        }
+    }
+    @else {
+        & {
+            @content;
+        }
+    }
+}
+
+// 向上媒体查询：大于等于媒体关键字所在范围
+@mixin media-up($key,$breakpoints:$media-breakpoints) {
+    $next: map-next($media-breakpoints,$key);
+
+    @if $next {
+        @media (min-width:map-get($breakpoints,$key)) {
+            & {
+                @content;
+            }
+        }
+    }
+    @else {
+        & {
+            @content;
+        }
+    }
+}
+
+// 单一媒体查询：仅包含媒体关键字所在范围
+@mixin media-only($key,$breakpoints:$media-breakpoints) {
+    @include media-up($key,$breakpoints) {
+        @include media-down($key,$breakpoints) {
+            @content;
+        }
+    }
+}
+
+// 生成内容包含容器
+@mixin make-container {
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+    @include clearfix;
+    margin-left: auto;
+    margin-right: auto;
+
+    $firstKey: nth(map-keys($container-widths),1);
+
+    @each $key, $width in $container-widths {
+        @if $key != $firstKey {
+            @include media-down($key,$media-breakpoints) {
+                & {
+                    width: $width;
+                }
+            }
+        }
+        @else {
+            width: $width;
+        }
+    }
+}

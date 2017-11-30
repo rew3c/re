@@ -1,0 +1,118 @@
+// ------------------------------ 颜色体系 ------------------------------ //
+// 主色
+$main-color:#26a8ff !default;
+$main-color-hover:darken(saturate($main-color,8%),8%) !default;
+$main-color-active:darken(saturate($main-color,15%),15%) !default;
+$main-color-inverse:#fff;
+
+// 辅色
+$minor-color:#6ec940 !default;
+$minor-color-hover:darken(saturate($minor-color,8%),8%) !default;
+$minor-color-active:darken(saturate($minor-color,15%),15%) !default;
+$minor-color-inverse:#fff;
+
+// 错误色
+$error-color:#f04134 !default;
+
+// 背景色
+$body-bg:#f5f5f5 !default;
+
+// 文本色
+$main-text-color:#333 !default; // 主
+$minor-text-color:#666 !default; // 铺
+$weaken-text-color:#999 !default; // 弱化
+$highlight-text-color:#ffbf00 !default; // 高亮
+$error-text-color:$error-color !default; // 错误
+$placeholder-text-color:$weaken-text-color !default; // 占位文本色
+
+// 边框色
+$main-border-color:#ccc !default; // 主
+$minor-border-color:#ddd !default; // 铺
+$weaken-border-color:#eee !default; // 弱化
+$error-border-color:$error-color !default; // 错误
+
+// 链接色
+$link-color:$main-color !default;
+$link-color-hover:$main-color-hover !default;
+
+// 按钮色
+$main-btn-bg:$main-color !default; // 主按钮
+$main-btn-bg-hover:$main-color-hover !default;
+$main-btn-color:$main-color-inverse !default;
+$main-btn-border-color:$main-color !default;
+$main-btn-border-color-hover:$main-color-hover !default;
+
+$minor-btn-bg:$minor-color !default; // 铺按钮
+$minor-btn-bg-hover:$minor-color-hover !default;
+$minor-btn-color:$minor-color-inverse !default;
+$minor-btn-border-color:$minor-color !default;
+$minor-btn-border-color-hover:$minor-color-hover !default;
+
+$weaken-btn-color:$main-text-color !default; // 弱化按钮
+$weaken-btn-color-hover:$main-color !default;
+$weaken-btn-border-color:$main-border-color !default;
+$weaken-btn-border-color-hover:$minor-color-hover !default;
+
+// 表单色
+$ctr-color:$main-text-color !default;
+$ctr-border:$main-border-color !default;
+
+// ------------------------------ 间距体系 ------------------------------ //
+// 字体大小
+$font-size-base:14px !default; // 基础大小
+$font-size-step:2 !default; // 增量步长
+$font-size-small:$font-size-base - $font-size-step !default; // 小
+$font-size-medium:$font-size-base + $font-size-step !default; // 中
+$font-size-large:$font-size-base + $font-size-step*2 !default; // 大
+$font-size-xlarge:$font-size-base + $font-size-step*3 !default; // 超大
+
+// 边距
+$padding-base:10px !default; // 基础
+$padding-small:floor($padding-base*0.5) !default; // 小
+$padding-medium:$padding-base*2 !default; // 中
+$padding-large:$padding-base*3 !default; // 大
+
+// 按钮边距
+$btn-padding:$padding-base !default;
+
+// 间距
+$spacing-base:8px !default; // 基础
+$spacing-small:floor($spacing-base*0.5) !default; // 小
+$spacing-medium:$spacing-base*2 !default; // 中
+$spacing-large:$spacing-base*3 !default; // 大
+
+// 表单行间距
+$form-row-spacing:$spacing-base*2 !default;
+
+// 控件及按钮间距
+$ctr-spacing:floor($spacing-base*1.5) !default;
+$btn-spacing:floor($spacing-base*1.5) !default;
+
+// ------------------------------ 尺寸体系 ------------------------------ //
+// 控件
+$ctr-height-base:30px !default;
+$ctr-height-medium:$ctr-height-base + 6px !default;
+
+// 按钮尺寸
+$btn-min-width:90px !default;
+$btn-height-base:$ctr-height-base !default;
+$btn-height-medium:$btn-height-base + 6px !default;
+
+// 页脚尺寸
+$footer-height:50px !default;
+
+// ------------------------------ 响应式体系(PC优先) ------------------------------ //
+// 响应式断点
+$media-breakpoints: (pc:1200px,lpad:992px,pad:768px,lphone:554px,phone:0) !default;
+
+// 断点对应的主容器宽度
+$container-widths: (pc:1200px,lpad:960px,pad:auto,lphone:auto,phone:auto) !default;
+$container-min-width:960px !default;
+
+// 栅格
+$grid-columns:12 !default;
+$grid-gutter-width:$spacing-medium * 2 !default;
+
+// ------------------------------ 其它 ------------------------------ //
+// 过渡效果时间
+$transition-duration:.3s !default;
