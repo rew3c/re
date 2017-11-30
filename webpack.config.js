@@ -1,33 +1,41 @@
 const path = require('path')
 const htmlPlugin = require('html-webpack-plugin')
 
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: resolve('dist'),
     filename: 'main.js'
   },
+  resolve: {
+    alias: {
+      "@": resolve('src')
+    }
+  },
   module: {
-    rules: [{
-      test: /\.scss/,
-      use: [{
-        loader: 'style-loader'
-      }, {
-        loader: 'css-loader'
-      }, {
-        loader: 'postcss-loader'
-      },{
-        loader: 'sass-loader',
-        options: {
-          // 指定scss文件中@import的查询路径
-          includePaths: [
-            './src/components'
-          ]
-        }
-      }]
-    }]
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: { minimize: true }
+          },
+          { loader: 'postcss-loader' },
+          {
+            loader: 'sass-loader',
+            options: { includePaths: ['./src/components'] }
+          }
+        ]
+      }
+    ]
   },
   plugins: [
-    new htmlPlugin({template:'./src/index.html'})
+    new htmlPlugin({ template: './src/index.html' })
   ]
 }
